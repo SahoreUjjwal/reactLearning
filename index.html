@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+    <head>
+        <title></title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    <script type ="text/babel">
+        let score =0;
+        let wicket =0;
+        function add(n){
+            score+=n;
+            root.render(<App/>);
+        }
+        function incrementWicket(){
+            wicket+=1;
+            root.render(<App/>);
+        }
+        function App(){
+            return(
+                <>
+                    <h1>Score : {score}/{wicket}</h1>
+                    <button onClick={()=>{add(1)}}>1</button>
+                    <button onClick={()=>{add(2)}}>2</button>
+                    <button onClick={()=>{add(3)}}>3</button>
+                    <button onClick={()=>{add(4)}}>4</button>
+                    <button onClick={()=>{add(5)}}>5</button>
+                    <button onClick={()=>{add(6)}}>6</button>
+                    <button onClick={incrementWicket}>Wicket</button>
+                </>
+            )
+        }
+        const root= ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App/>);
+    </script>
+    </body>
+</html>
